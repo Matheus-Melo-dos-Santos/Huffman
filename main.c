@@ -1,29 +1,34 @@
-void compress();
+#include "zip.c"
 
-void descompress();
+int main (void){
 
-void main (void){
+  int menu;
+  do
+  {
 
-  while ( true ){
+    printf("1 - zip\n");
+    printf("2 - unzip\n");
+    printf("0 - exit\n");
 
-    printf("1. Compress file  \n");
-    printf("2. descompress file  \n");
-    printf("0. exit.  \n");
+    scanf("%d", &menu);
+
+    if (menu < 0 || menu >2){
+
+      printf("invalid option\n try a valid option\n");
+
+    }
+
+    if (menu == 1)
+    {
     
-    int menu;
-    scanf("Your action: %d\n", &menu);
+      zip();
 
-    if ( menu == 1 ) compress();
+    }
 
-    else 
-      if ( menu == 2 ) descompress();
+    if(!menu) break;
 
-    else 
-      if ( !menu ) return;
-
-    else printf("Non valid option\n");
-
-  }
+  } while (menu);
 
 
-}
+  return 0;
+} 
